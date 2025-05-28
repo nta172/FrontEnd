@@ -1,0 +1,49 @@
+/* Reset các thuộc tính mặc định. */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.menu {
+    background-color: #aec5d1;
+    height: 60px;
+}
+
+.ul_menu {
+    /* Hiển thị dòng cho các li */
+    display: flex;
+    /* Cách lề bên trái 50px */
+    margin-left: 50px;
+    height: 100%;
+    text-align: center;
+}
+
+.ul_menu li {
+    /* Bỏ dấu châm ở đầu câu */
+    list-style: none;
+    width: 230px;
+    height: 100%;
+}
+
+.ul_menu li a {
+    /* Hiển thị theo khối để set chiều cao */
+    display: block;
+    /* Bỏ dấu gạch chân */
+    text-decoration: none;
+    font-size: 20px;
+    /* Tạo dấu gạch dọc phân cách giữa các menu */
+    border-right: #73acc9 solid 2px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    /* tạo dãn cách chữ trong menu vào giữa */
+    height: 45px;
+    padding-top: 15px;
+}
+
+.ul_menu li a:hover {
+ /* Đổi màu khi di chuột qua menu */
+ background-color: #e1e8ed ;
+}
