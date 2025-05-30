@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Trang chính</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .banner {
+      height: 40%;
+      display: flex;
+    }
+    .nav {
+      height: 60%;
+      display: flex;
+    }
+    .menu {
+      width: 20%;
+      background-color: #f0f0f0;
+      box-sizing: border-box;
+    }
+    .menu a {
+      display: block;
+      padding: 6px;
+      text-decoration: none;
+      color: black;
+      border-bottom: 1px solid #ccc;
+      text-align: center;
+    }
+    .menu a:hover {
+      background-color: #ddd;
+    }
+    .main {
+      width: 80%;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="banner">
+        <img src="banner.jpg" alt="" width="100%">
+    </div>
+    <div class="nav">
+      <div class="menu">
+        <a href="Ex1_Ques1_2.html" target="mainframe">Bài 1</a>
+        <a href="Ex2_Ques1.html" target="mainframe">Bài 2</a>
+        <a href="Ex2_Ques4.html" target="mainframe">Bài 3</a>
+        <a href="Ex2_Ques5.html" target="mainframe">Bài 4</a>
+        <a href="Ex2_Ques6.html" target="mainframe">Bài 5</a>
+        <a href="Ex3_Ques1.html" target="mainframe">Bài 6</a>
+        <a href="Ex3_Ques2.html" target="mainframe">Bài 7</a>
+        <a href="Ex4_Ques1.html" target="mainframe">Bài 8</a>
+      </div>
+      <div class="main">
+        <iframe src="" name="mainframe"></iframe>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
