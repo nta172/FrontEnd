@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đếm số từ</title>
+</head>
+
+<body>
+    <h2>Nhập vào những gì mà bạn muốn :</h2>
+    <input type="text" id="textarea" placeholder="Nhập vào chuỗi ký tự">
+    <button onclick="printLength()">OK</button>
+    <p id="result"></p>
+
+    <script>
+        function countWords(str) {
+            const words = str.trim().split(/\s+/);
+            return (words[0] === "") ? 0 : words.length;
+        }
+
+        function printLength() {
+            const input = document.getElementById("textarea").value;
+            const wordCount = countWords(input);
+            document.getElementById("result").innerText = "Số lượng từ: " + wordCount;
+        }
+    </script>
+</body>
+
+</html>

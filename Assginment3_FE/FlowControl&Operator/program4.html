@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính điểm tín chỉ</title>
+</head>
+<body>
+    <script>
+        // Nhập ký tự
+        var input = prompt("Nhập điểm chữ A đến Z");
+
+        if (input === null) {
+            document.write("Bạn đã hủy nhập.");
+        } else {
+            // Đưa về chữ in hoa (phòng trường hợp nhập a, b, ...)
+            var grade = input.toUpperCase();
+
+            // Xử lý và in kết quả
+            if (grade === "A") {
+                document.write("Điểm tín chỉ: 4");
+            } else if (grade === "B") {
+                document.write("Điểm tín chỉ: 3");
+            } else if (grade === "C") {
+                document.write("Điểm tín chỉ: 2");
+            } else if (grade === "D") {
+                document.write("Điểm tín chỉ: 1");
+            } else {
+                document.write("Sinh viên này đã thôi học.");
+            }
+        }
+    </script>
+</body>
+</html>

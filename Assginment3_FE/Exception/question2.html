@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+        function Department(departmentID, departmentName) {
+            this.departmentID = departmentID;
+            this.departmentName = departmentName;
+        }
+
+        var dep1 = new Department(1, "Marketing");
+        var dep2 = new Department(2, "Sale");
+        var dep3 = new Department(3, "IT14");
+
+        var arrDep = [dep1, dep2, dep3];
+
+        function getIndex(index) {
+            try {
+                index = Number(index);
+                if (isNaN(index)) {
+                    throw new Error("Index không hợp lệ vui lòng nhập vào số");
+                }
+                if (index >= 0 && index < arrDep.length) {
+                    alert("Department : " + arrDep[index].departmentName);
+                } else {
+                    throw new Error("Cannot find department.");
+                }
+            } catch (error) {
+                alert("Lỗi: " + error.message);
+                console.error(error);
+            }
+        }
+
+
+        var userIndex = prompt("Nhập vào chỉ số của phòng ban (0 , 1, 2)");
+        getIndex(userIndex);
+    </script>
+</body>
+
+</html>

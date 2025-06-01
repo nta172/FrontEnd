@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        "use strict"
+        var a = prompt("Nhập số thứ 1");
+        var b = prompt("Nhập số thứ 2");
+
+        a = Number(a);
+        b = Number(b);
+
+        if (isNaN(a) || isNaN(b)) {
+            alert("Vui lòng nhập đúng là số.")
+        } else {
+            var tong = a + b;
+            var hieu = a - b;
+            var tich = a * b;
+            var thuong = b !== 0 ? (a / b) : "Không chưa được(chia cho 0)";
+            var chiaDu = b !== 0 ? a % b : "Không chia được (chia cho 0)";
+
+            var message = "Kết quả : \n";
+            message += `Tổng: ${tong}\n`;
+            message += `Hiệu: ${hieu}\n`;
+            message += `Tích: ${tich}\n`;
+            message += `Thương: ${thuong}\n`;
+            message += `Chia lấy dư: ${chiaDu}`;
+
+            alert(message);
+        }
+    </script>
+</body>
+
+</html>

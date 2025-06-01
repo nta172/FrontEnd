@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Each</title>
+</head>
+
+<body>
+    <script>
+        // Department
+        function Department(departmentID, departmentName) {
+            this.departmentID = departmentID;
+            this.departmentName = departmentName;
+        }
+
+        var dep1 = new Department(1, "Marketing");
+        var dep2 = new Department(2, "Sale");
+
+        var arrDeps = [dep1, dep2];
+
+        arrDeps.forEach(function (dep) {
+            console.log("ID:", dep.departmentID);
+            console.log("Name:", dep.departmentName);
+        });
+
+    </script>
+</body>
+
+</html>

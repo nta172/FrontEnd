@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>In các số từ 1 đến n</title>
+</head>
+
+<body>
+    <p>Nhập vào 1 số nguyên.</p>
+    <input type="number" id="inputNumber" placeholder="Nhập số n">
+    <button onclick="printNumber()">OK</button>
+    <p id="result"></p>
+    <script>
+    
+        function printNumber() {
+            var n = parseInt(document.getElementById("inputNumber").value);
+            if (isNaN(n) || n < 1) {
+                document.getElementById("result").innerHTML = "Vui lòng nhập số nguyên dương";
+                return;
+            }
+
+            var output = "";
+            for (var i = 1; i <= n; i++) {
+                output += i + " ";
+            }
+            document.getElementById("result").innerHTML = output;
+        }
+    </script>
+</body>
+
+</html>

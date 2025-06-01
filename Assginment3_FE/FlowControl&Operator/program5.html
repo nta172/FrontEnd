@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đếm số chia hết cho 2</title>
+</head>
+<body>
+    <script>
+        // Nhập số n từ bàn phím
+        var input = prompt("Nhập số nguyên dương n (1-10):");
+        var n = parseInt(input);
+
+        // Kiểm tra n có hợp lệ không
+        if (isNaN(n) || n < 1 || n > 10) {
+            document.write("Vui lòng nhập một số nguyên từ 1 đến 10!");
+        } else {
+            var count = 0;
+
+            // Duyệt từ 1 đến n
+            for (var i = 1; i <= n; i++) {
+                if (i % 2 === 0) {
+                    count++;
+                }
+            }
+            // In kết quả
+            document.write("Có " + count + " số chia hết cho 2 trong khoảng từ 1 đến " + n + ".");
+        }
+    </script>
+</body>
+</html>

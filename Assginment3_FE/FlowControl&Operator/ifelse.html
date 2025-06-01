@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFELSE</title>
+</head>
+<body>
+    <script>
+
+        function Department(departmentID, departmentName){
+            this.departmentId = departmentID;
+            this.departmentName = departmentName;
+        }
+
+        var department = new Department(1, "Marketing")
+
+        if (department == null) {
+            console.log("Nhân viên này chưa có phòng ban.")
+        } else {
+            console.log("Phòng ban của nhân viên này là " + department.departmentName)
+        }
+    </script>
+</body>
+</html>

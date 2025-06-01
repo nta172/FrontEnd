@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwitchCase</title>
+</head>
+
+<body>
+    <script>
+        function Account(accountID, userName, fullName) {
+            this.accountID = accountID;
+            this.userName = userName;
+            this.fullName = fullName;
+        }
+
+        var acc1 = new Account(1, "abc1", "Nguyen Van A");
+        var acc2 = new Account(2, "abc2", "Nguyen Van B");
+        var acc3 = new Account(3, "abc3", "Nguyen Van C");
+
+        var arrAcc = [acc1, acc2, acc3];
+
+        if (!arrAcc || arrAcc.length === 0) {
+            console.log("Nhóm không có thành viên nào.");
+        } else {
+            var countAcc = arrAcc.length;
+            switch (countAcc) {
+                case 1:
+                    console.log("Nhóm có một thành viên");
+                    break;
+                case 2:
+                    console.log("Nhóm có hai thành viên");
+                    break;
+                case 3:
+                    console.log("Nhóm có ba thành viên");
+                    break;
+                default:
+                    console.log("Nhóm có nhiều thành viên");
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>

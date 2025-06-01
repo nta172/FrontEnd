@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>While</title>
+</head>
+
+<body>
+    <script>
+        function Department(departmentId, departmentName) {
+            this.departmentId = departmentId;
+            this.departmentName = departmentName;
+        }
+
+        var dep1 = new Department(1, "Marketing");
+        var dep2 = new Department(2, "Sale");
+
+        var arrDep = [dep1, dep2];
+
+        var i = 0;
+        while (i < arrDep.length) {
+            console.log("ID:", arrDep[i].departmentId);
+            console.log("Tên:", arrDep[i].departmentName);
+            i++;
+        }
+    </script>
+</body>
+
+</html>

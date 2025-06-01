@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>In từng ký tự</title>
+</head>
+<body>
+  <h2>Nhập tên của bạn:</h2>
+  <input type="text" id="nameInput" placeholder="Nhập tên của bạn">
+  <button onclick="printCharacters()">In từng ký tự</button>
+
+  <div id="result"></div>
+
+  <script>
+    function printCharacters() {
+      const name = document.getElementById("nameInput").value.trim();
+      const resultDiv = document.getElementById("result");
+      resultDiv.innerHTML = ""; // Xóa kết quả cũ
+
+      for (let i = 0; i < name.length; i++) {
+        const char = name[i];
+        const para = document.createElement("p"); // tạo 1 thẻ <p>
+        para.innerText = `Ký tự thứ ${i + 1} là: ${char}`;
+        resultDiv.appendChild(para); // thêm thẻ <p> vào kết quả
+      }
+    }
+  </script>
+</body>
+</html>

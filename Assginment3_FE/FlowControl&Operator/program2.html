@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Điểm</title>
+</head>
+<body>
+    <script>
+        var input = prompt("Nhập điểm từ 1 đến 10");
+        var score = parseFloat(input);
+
+        if (score >= 9 && score <= 10) {
+            document.write("Học sinh Giỏi!");
+        } else if (score >= 7 && score < 9) {
+            document.write("Học sinh Khá!");
+        } else if (score >= 5 && score < 7) {
+            document.write("Học sinh Trung bình!");
+        } else if (score >= 1 && score < 5) {
+            document.write("Học sinh Yếu!");
+        } else {
+            document.write("Bạn nhập sai! Vui lòng nhập số từ 1 đến 10.");
+        }
+    </script>
+</body>
+</html>

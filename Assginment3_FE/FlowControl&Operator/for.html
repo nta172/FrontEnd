@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For</title>
+</head>
+
+<body>
+    <script>
+        function Department(departmentId, departmentName) {
+            this.departmentId = departmentId;
+            this.departmentName = departmentName;
+        }
+
+        var dep1 = new Department(1, "Marketing");
+        var dep2 = new Department(2, "Sale");
+
+        var arrDep = [dep1, dep2];
+        for (let i = 0; i < arrDep.length; i++) {
+            console.log("ID:", arrDep[i].departmentId);
+            console.log("Tên:", arrDep[i].departmentName);
+        }
+
+
+    </script>
+</body>
+
+</html>

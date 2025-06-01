@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exception</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+        try {
+            var fruits = ["Banana"];
+            if (fruits[2] === undefined) {
+                throw new Error("Phần tử fruits[2] không tồn tại trong mảng");
+            }
+
+            console.log(fruits[2]);
+        } catch (error) {
+            console.error("Lỗi: " + error.message);
+            alert("Đã xảy ra lỗi: " + error.message);
+        }
+    </script>
+</body>
+
+</html>

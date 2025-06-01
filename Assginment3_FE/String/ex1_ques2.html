@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nối 2 xâu kí tự</title>
+</head>
+
+<body>
+    <h2>Nhập vào 2 xâu kí tự</h2>
+    <label for="s1">Xâu s1: </label><br>
+    <input type="text" id="s1" placeholder="Nhập vào xâu thứ nhất"><br><br>
+
+    <label for="s2">Xâu s2: </label><br>
+    <input type="text" id="s2" placeholder="Nhập vào xâu thứ nhất"><br><br>
+
+    <button onclick="concatString()">OK</button>
+    <p id="result"></p>
+    <script>
+        function concatString() {
+            const s1 = document.getElementById("s1").value;
+            const s2 = document.getElementById("s2").value;
+
+            const result = s1 + " " + s2;
+
+            document.getElementById("result").innerHTML = "Kết quả sau khi nối : " + result;
+        }
+    </script>
+</body>
+
+</html>

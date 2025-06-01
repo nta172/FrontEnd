@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính quãng đường</title>
+</head>
+
+<body>
+    <script>
+        var met = prompt("Nhập số quãng đường : ")
+
+        var S = parseInt(met);
+
+        if (isNaN(S) || S <= 0) {
+            document.write("Vui lòng nhập số hợp lệ.")
+        } else {
+            var time = 0;
+            if (S <= 3000) {
+                time = S * 1;
+            } else if (S <= 5000) {
+                time = 3000 * 1 + (S - 3000) * 2;
+            } else if (S <= 6000) {
+                time = 3000 * 1 + 2000 * 2 + (S - 5000) * 3;
+            } else {
+                time = 3000 * 1 + 2000 * 2 + 1000 * 3 + (S - 6000) * 5;
+            } 
+
+            document.write("Thời gian đã đi bộ " + time + " giây")
+        }
+    </script>
+</body>
+
+</html>
