@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Chu Vi Diện Tích Hình Chữ Nhật</title>
+</head>
+
+<body>
+    <table border="1px">
+        <tr>
+            <td>Nhập độ dài chiều dài thứ nhất</td>
+            <td><input type="number" id="chieudai1"></td>
+        </tr>
+        <tr>
+            <td>Nhập độ dài chiều dài thứ hai</td>
+            <td><input type="number2" id="chieudai2"></td>
+        </tr>
+        <tr>
+            <td style="text-align: center;" colspan="2"><button onclick="ketQua()">Tính toán</button></td>
+        </tr>
+        <tr>
+            <td>Diện tích hình chữ nhật</td>
+            <td><input type="text" id="dienTich" readonly></td>
+        </tr>
+        <tr>
+            <td>Chu vi hình chữ nhật</td>
+            <td><input type="text" id="chuVi" readonly></td>
+        </tr>
+    </table>
+    <script>
+        function ketQua(){
+            var chieudai1 = parseFloat(document.getElementById("chieudai1").value);
+            var chieudai2 = parseFloat(document.getElementById("chieudai2").value);
+
+            if (isNaN(chieudai1) || isNaN(chieudai2)) {
+                document.write("Nhập đúng giá trị là số");
+                return;
+            } else {
+                var dienTich = chieudai1 * chieudai2;
+                document.getElementById("dienTich").value = dienTich;
+
+                var chuVi = (chieudai1 + chieudai2) * 2;
+                document.getElementById("chuVi").value = chuVi;
+            }
+        }
+    </script>
+</body>
+
+</html>

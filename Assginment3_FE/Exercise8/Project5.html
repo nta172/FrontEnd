@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính Giai Thừa</title>
+</head>
+<body>
+    <h2>Tính Giai Thừa</h2>
+    <label type="number">Nhập số nguyên dương (1 - 50):</label>
+    <input type="number" id="number" placeholder="Nhập số n">
+    <button onclick="tinhGiaiThua()">Tính giai thừa</button>
+    
+    <p id="message" style="color: red;"></p>
+    <p id="result" style="font-weight: bold;"></p>
+
+    <script>
+        function tinhGiaiThua() {
+            var n = parseInt(document.getElementById("number").value);
+            var message = document.getElementById("message");
+            var result = document.getElementById("result");
+
+            // Xóa kết quả cũ
+            message.textContent = "";
+            result.textContent = "";
+
+            // Kiểm tra điều kiện
+            if (isNaN(n) || n < 1 || n > 50) {
+                message.textContent = "Vui lòng nhập một số nguyên dương trong khoảng từ 1 đến 50.";
+                return;
+            }
+
+            // Tính giai thừa
+            let giaithua = 1;
+            for (let i = 2; i <= n; i++) {
+                giaithua *= i;
+            }
+
+            result.textContent = `${n}! = ${giaithua.toLocaleString()}`;
+        }
+    </script>
+</body>
+</html>

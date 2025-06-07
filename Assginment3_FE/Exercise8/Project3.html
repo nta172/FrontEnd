@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Giải phương trình bậc 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        input {
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+        #result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Giải phương trình bậc 2: ax² + bx + c = 0</h2>
+
+    <label>Hệ số a:</label>
+    <input type="number" id="a" placeholder="Nhập a"><br>
+
+    <label>Hệ số b:</label>
+    <input type="number" id="b" placeholder="Nhập b"><br>
+
+    <label>Hệ số c:</label>
+    <input type="number" id="c" placeholder="Nhập c"><br>
+
+    <button onclick="giaiPT()">Giải phương trình</button>
+
+    <div id="result"></div>
+
+    <script>
+        function giaiPT() {
+            var a = parseFloat(document.getElementById("a").value);
+            var b = parseFloat(document.getElementById("b").value);
+            var c = parseFloat(document.getElementById("c").value);
+            var result = document.getElementById("result");
+
+            // Kiểm tra đầu vào
+            if (isNaN(a) || isNaN(b) || isNaN(c)) {
+                result.innerHTML = "<span class='error'>Vui lòng nhập đầy đủ và đúng các hệ số a, b, c.</span>";
+                return;
+            }
+
+            if (a === 0) {
+                // Phương trình bậc nhất: bx + c = 0
+                if (b === 0) {
+                    result.innerHTML = (c === 0) ? "Phương trình vô số nghiệm." : "Phương trình vô nghiệm.";
+                } else {
+                    var x = -c / b;
+                    result.innerHTML = "Phương trình bậc nhất có nghiệm x = " + x;
+                }
+                return;
+            }
+
+            // Tính delta
+            var delta = b * b - 4 * a * c;
+
+            if (delta < 0) {
+                result.innerHTML = "Phương trình vô nghiệm.";
+            } else if (delta === 0) {
+                var x = -b / (2 * a);
+                result.innerHTML = "Phương trình có nghiệm kép x = " + x;
+            } else {
+                var x1 = (-b + Math.sqrt(delta)) / (2 * a);
+                var x2 = (-b - Math.sqrt(delta)) / (2 * a);
+                result.innerHTML = "Phương trình có 2 nghiệm phân biệt:<br>x₁ = " + x1 + "<br>x₂ = " + x2;
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form khảo sát thông tin cá nhân</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            /* Giúp viền không bị trùng lặp */
+        }
+
+        table,
+        td {
+            border: 1px solid black;
+        }
+
+        td {
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Form khảo sát thông tin cá nhân: </h3>
+    <table>
+        <tr>
+            <td>Họ tên:</td>
+            <td>
+                <input type="text">
+            </td>
+        </tr>
+        <tr>
+            <td>Số điện thoại:</td>
+            <td>
+                <input type="number">
+            </td>
+        </tr>
+        <tr>
+            <td>Giới tính</td>
+            <td>
+                <input type="radio" name="gioiTinh"> Nam
+                <input type="radio" name="gioiTinh"> Nữ
+            </td>
+        </tr>
+        <tr>
+            <td>Sở thích:</td>
+            <td>
+                <input type="checkbox" id=""> Nghe nhạc
+                <input type="checkbox" id=""> Bóng đá
+                <input type="checkbox" id=""> Du lịch
+                <input type="checkbox" id=""> Đọc sách
+            </td>
+        </tr>
+    </table>
+    <br>
+    <button onclick="printInfor">Hiển thị</button>
+    <script>
+
+    </script>
+</body>
+
+</html>

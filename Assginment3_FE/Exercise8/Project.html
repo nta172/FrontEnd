@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Project</title>
+</head>
+
+<body>
+    <span>Number 1 : </span>
+    <input type="number" id="number1" placeholder="Nhập vào số"><br><br>
+    <span>Number 2 : </span>
+    <input type="number" id="number2" placeholder="Nhập vào số"><br><br>
+
+    <button onclick="printTong()" id="calculator">Cộng</button>
+    <button onclick="printHieu()" id="calculator">Trừ</button>
+    <button onclick="printNhan()" id="calculator">Nhân</button>
+    <button onclick="printChia()" id="calculator">Chia</button>
+    <button onclick="printChiaDu()" id="calculator">Chia Láy Dư</button>
+    <span>Kết quả </span>
+    <input type="text" id="result" readonly>
+    <script>
+        // Tổng
+        function printTong() {
+            var number1 = parseFloat(document.getElementById("number1").value);
+            var number2 = parseFloat(document.getElementById("number2").value);
+            if (isNaN(number1) || isNaN(number2)) {
+                document.write("Vui lòng nhập đúng vào là số!")
+                return;
+            } else {
+                var tong = number1 + number2;
+                document.getElementById("result").value = tong;
+            }
+        }
+        //Hiệu
+        function printHieu() {
+            var number1 = parseFloat(document.getElementById("number1").value);
+            var number2 = parseFloat(document.getElementById("number2").value);
+            if (isNaN(number1) || isNaN(number2)) {
+                document.write("Vui lòng nhập đúng vào là số!")
+                return;
+            } else {
+                var hieu = number1 - number2;
+                document.getElementById("result").value = hieu;
+            }
+        }
+        //Nhân
+        function printNhan() {
+            var number1 = parseFloat(document.getElementById("number1").value);
+            var number2 = parseFloat(document.getElementById("number2").value);
+            if (isNaN(number1) || isNaN(number2)) {
+                document.write("Vui lòng nhập đúng vào là số!")
+                return;
+            } else {
+                var nhan = (number1 * number2);
+                document.getElementById("result").value = nhan;
+            }
+        }
+        function printChia() {
+            var number1 = parseFloat(document.getElementById("number1").value);
+            var number2 = parseFloat(document.getElementById("number2").value);
+            if (isNaN(number1) || isNaN(number2)) {
+                document.write("Vui lòng nhập đúng vào là số!")
+                return;
+            } else {
+                var thuong = number2 !== 0 ? (number1 / number2) : "Không chia được cho 0";
+                document.getElementById("result").value = thuong;
+            }
+        }
+        function printChiaDu() {
+            var number1 = parseFloat(document.getElementById("number1").value);
+            var number2 = parseFloat(document.getElementById("number2").value);
+            if (isNaN(number1) || isNaN(number2)) {
+                document.write("Vui lòng nhập đúng vào là số!")
+                return;
+            } else {
+                var chiaDu = number2 !== 0 ? (number1 % number2) : "Không chia được cho 0";
+                document.getElementById("result").value = chiaDu;
+            }
+        }
+    </script>
+</body>
+
+</html>
