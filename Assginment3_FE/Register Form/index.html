@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Đăng Ký</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Form Đăng Ký</h2>
+    <form id="registerForm">
+      <label>Họ tên:</label>
+      <input id="name" /><br>
+
+      <label>Số điện thoại:</label>
+      <input id="phone" /><br>
+
+      <label>Email:</label>
+      <input id="email" /><br>
+
+      <label>Mật khẩu:</label>
+      <input id="password" /><br>
+
+      <label>Xác nhận mật khẩu:</label>
+      <input id="confirmPassword" /><br>
+
+      <button type="button" onclick="handleRegister()">Đăng ký</button>
+    </form>
+
+    <div id="result"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

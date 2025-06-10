@@ -8,7 +8,6 @@
     <style>
         table {
             border-collapse: collapse;
-            /* Giúp viền không bị trùng lặp */
         }
 
         table,
@@ -28,36 +27,66 @@
         <tr>
             <td>Họ tên:</td>
             <td>
-                <input type="text">
+                <input type="text" id="fullName" placeholder="Nhập vào Họ và Tên">
             </td>
         </tr>
         <tr>
             <td>Số điện thoại:</td>
             <td>
-                <input type="number">
+                <input type="number" id="phone" placeholder="Nhập số điện thoại">
             </td>
         </tr>
         <tr>
             <td>Giới tính</td>
             <td>
-                <input type="radio" name="gioiTinh"> Nam
-                <input type="radio" name="gioiTinh"> Nữ
+                <input type="radio" name="gioiTinh" value="Nam"> Nam
+                <input type="radio" name="gioiTinh" value="Nữ"> Nữ
             </td>
         </tr>
         <tr>
             <td>Sở thích:</td>
             <td>
-                <input type="checkbox" id=""> Nghe nhạc
-                <input type="checkbox" id=""> Bóng đá
-                <input type="checkbox" id=""> Du lịch
-                <input type="checkbox" id=""> Đọc sách
+                <input type="checkbox" value="Nghe nhạc"> Nghe nhạc
+                <input type="checkbox" value="Bóng đá"> Bóng đá
+                <input type="checkbox" value="Du lịch"> Du lịch
+                <input type="checkbox" value="Đọc sách"> Đọc sách
             </td>
         </tr>
     </table>
     <br>
-    <button onclick="printInfor">Hiển thị</button>
-    <script>
+    <button onclick="printInfor()">Hiển thị</button>
 
+    <script>
+        function printInfor() {
+            // Lấy họ tên và số điện thoại
+            var fullName = document.getElementById("fullName").value;
+            var phone = document.getElementById("phone").value;
+
+            // Lấy giới tính
+            var genderEls = document.getElementsByName("gioiTinh"); // Khởi tạo danh sách các input radio
+            var gender = ""; // Khởi tạo danh sách rỗng để kiểm tra xem nào được chọn
+            for (var i = 0; i < genderEls.length; i++) {
+                if (genderEls[i].checked) { // checked === true
+                    gender = genderEls[i].value;
+                    break;
+                }
+            }
+
+            // Lấy sở thích
+            var hobbies = [];
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]'); // querySelectorAll : chọn tất cả trong các thẻ input
+            checkboxes.forEach(function (cb) {
+                if (cb.checked) {
+                    hobbies.push(cb.value); // push : đẩy (thêm) giá trị vào
+                }
+            });
+
+            // Hiển thị kết quả
+            alert("Họ tên: " + fullName +
+                  "\nSố điện thoại: " + phone +
+                  "\nGiới tính: " + (gender || "Chưa chọn") + // || Hoặc
+                  "\nSở thích: " + (hobbies.length ? hobbies.join(", ") : "Không có")); // Join là nối giá trị
+        }
     </script>
 </body>
 

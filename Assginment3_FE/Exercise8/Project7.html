@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý nhân viên</title>
+</head>
+
+<body>
+    <h1>Quản lý nhân viên</h1>
+    <button onclick="printEmployee()">Xem danh sách nhân viên</button><br><br>
+    <button onclick="addEmployee()">Thêm nhân viên</button><br><br>
+    <button onclick="delEmployee()">Xóa nhân viên khỏi công ty</button><br><br>
+    <button onclick="changeInforEmployee()">Sửa thông tin nhân viên</button><br><br>
+
+    <div id="employeeList"></div>
+    <script>
+        // Định nghĩa class nhân viên.
+        function Employee(name, age, email, work) {
+            this.name = name;
+            this.age = age;
+            this.email = email;
+            this.work = work;
+        }
+
+        // Danh sách nhân viên.
+        var employees = [];
+
+        function printEmployee() {
+            if (employees.length === 0) {
+                document.getElementById("employeeList").innerHTML = "<p> Không có nhân viên nào. </p>";
+                return;
+            }
+
+            // dấu ` tạo chuỗi đa dòng để hiển thị bảng dữ liệu nhân viên
+            var output = `
+                <table border="1" cellpadding="8" cellspacing="0">
+                    <tr>
+                        <th>Họ tên</th>
+                        <th>Tuổi</th>
+                        <th>Email</th>
+                        <th>Công việc</th>
+                    </tr>
+            `;
+
+             // {emp.name} cú pháp nội suy (interpolation)
+            for (var emp of employees) {
+                output += `
+                    <tr>
+                        <td>${emp.name}</td>
+                        <td>${emp.age}</td>
+                        <td>${emp.email}</td>
+                        <td>${emp.work}</td>
+                    </tr>
+                `;
+            }
+
+            output += `</table>`;
+            document.getElementById("employeeList").innerHTML = output; // innerHTML : lấy nội dung
+        }
+
+        // Thêm nhân viên mới
+        function addEmployee() {
+            var name = prompt("Nhập họ tên : ");
+            var age = parseInt(prompt("Nhập tuổi : "));
+            var email = prompt("Nhập email : ");
+            var work = prompt("Nhập công viêc : ");
+
+            if (name && !isNaN(age) && email && work) {
+                employees.push(new Employee(name, age, email, work));
+                alert("Đã thêm nhân viên.");
+                printEmployee();
+            } else {
+                alert("Thông tin không hợp lệ!");
+            }
+        }
+
+        // Xóa nhân viên theo email
+        function delEmployee() {
+            var email = prompt("Nhập email của nhân viên cần xóa : ");
+            var index = employees.findIndex(emp => emp.email == email); // Tìm index trong email k có trả về -1 có sẽ trả về giá trị index
+
+            if (index !== -1) {
+                employees.splice(index, 1); // index vị trí cần xóa , 1 là số lượng cần xóa
+                alert("Đã xóa nhân viên.")
+                printEmployee();
+            } else {
+                alert("Không tìm thấy nhân viên với email này.")
+            }
+        }
+
+        // Sửa thông tin nhân viên theo email
+        function changeInforEmployee() {
+            var email = prompt("Nhập email của nhân viên cần sửa : ");
+            var emp = employees.find(e => e.email === email); // => : thường dùng để làm điền kiện
+
+            if (emp) {
+                var newName = prompt("Nhập họ tên mới:", emp.name);
+                var newAge = parseInt(prompt("Nhập tuổi mới:", emp.age));
+                var newEmail = prompt("Nhập email mới:", emp.email);
+                var newWork = prompt("Nhập công việc mới:", emp.work);
+
+                if (newName && !isNaN(newAge) && newEmail && newWork) {
+                    emp.name = newName;
+                    emp.age = newAge;
+                    emp.email = newEmail;
+                    emp.work = newWork;
+                    alert("Đã cập nhật thông tin.");
+                    printEmployee();
+                } else {
+                    alert("Thông tin không hợp lệ!");
+                }
+            } else {
+                alert("Không tìm thấy nhân viên với email này.");
+            }
+        }
+    </script>
+</body>
+
+</html>
