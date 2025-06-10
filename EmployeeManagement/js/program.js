@@ -14,44 +14,60 @@ function clickNavViewListEmployees() {
 }
 
 var employees = [];
-var counter = 0;
 
-function Employee(name, department, phone) {
-    this.id = ++counter;
+function Employee(id, name, department, phone) {
+    this.id = id;
     this.name = name;
     this.department = department;
     this.phone = phone;
 }
 
-function initEmployees() {
-    if (null == employees || employees.length == 0) {
-        // init data
-        employees.push(new Employee("John Doe", "Administration", "(171) 555-2222"));
-        employees.push(new Employee("Peter Parker", "Customer Service", "(313) 555-5735"));
-        employees.push(new Employee("Fran Wilson", "Human Resources", "(503) 555-9931"));
-    }
+function getListEmployees() {
+    // call API from server
+    $.get("https://6847cbaaec44b9f3493e34fd.mockapi.io/api/v1/employees", function(data, status) {
+
+        // reset list employees
+        employees = [];
+
+        // error
+        if (status == "error") {
+            // TODO
+            alert("Error when loading data");
+            return;
+        }
+
+        // success
+        parseData(data);
+        fillEmployeeToTable();
+    });
+}
+
+function parseData(data) {
+    // employees = data;
+
+    data.forEach(function(item) {
+        employees.push(new Employee(item.id, item.name, item.department, item.phone));
+    });
+}
+
+function fillEmployeeToTable() {
+    employees.forEach(function(item) {
+        $('tbody').append(
+            '<tr>' +
+            '<td>' + item.name + '</td>' +
+            '<td>' + item.department + '</td>' +
+            '<td>' + item.phone + '</td>' +
+            '<td>' +
+            '<a class="edit" title="Edit" data-toggle="tooltip" onclick="openUpdateModal(' + item.id + ')"><i class="material-icons">&#xE254;</i></a>' +
+            '<a class="delete" title="Delete" data-toggle="tooltip" onClick="openConfirmDelete(' + item.id + ')"><i class="material-icons">&#xE872;</i></a>' +
+            '</td>' +
+            '</tr>')
+    });
 }
 
 function buildTable() {
-    setTimeout(function name(params) {
-
-        $('tbody').empty();
-        initEmployees();
-
-        employees.forEach(function(item) {
-            $('tbody').append(
-                '<tr>' +
-                '<td>' + item.name + '</td>' +
-                '<td>' + item.department + '</td>' +
-                '<td>' + item.phone + '</td>' +
-                '<td>' +
-                '<a class="edit" title="Edit" data-toggle="tooltip" onclick="openUpdateModal(' + item.id + ')"><i class="material-icons">&#xE254;</i></a>' +
-                '<a class="delete" title="Delete" data-toggle="tooltip" onClick="openConfirmDelete(' + item.id + ')"><i class="material-icons">&#xE872;</i></a>' +
-                '</td>' +
-                '</tr>')
-        });
-
-    }, 500);
+    $('tbody').empty();
+    getListEmployees();
 }
 
 function openAddModal() {
@@ -75,6 +91,8 @@ function hideModal() {
 }
 
 function addEmployee() {
+
+    // get data
     var name = document.getElementById("name").value;
     var department = document.getElementById("department").value;
     var phone = document.getElementById("phone").value;
@@ -82,12 +100,27 @@ function addEmployee() {
     // TODO validate
     // then fail validate ==> return;
 
-    employees.push(new Employee(name, department, phone));
+    var employee = {
+        name: name,
+        department: department,
+        phone: phone
+    };
 
-    hideModal();
-    showSuccessAlert();
-    buildTable(); 
+    $.post("https://6847cbaaec44b9f3493e34fd.mockapi.io/api/v1/employees", employee,
+        function(data, status) {
+            // error
+            if (status == "error") {
+                alert("Error when loading data");
+                return;
+            }
+
+            // success
+            hideModal();
+            showSuccessAlert();
+            buildTable();
+        });
 }
+
 
 function openUpdateModal(id) {
 
@@ -122,17 +155,29 @@ function updateEmployee() {
     // TODO validate
     // then fail validate ==> return;
 
-    // get index from employee's id
-    var index = employees.findIndex(x => x.id == id);
+    var employee = {
+        name: name,
+        department: department,
+        phone: phone
+    };
 
-    // update employee
-    employees[index].name = name;
-    employees[index].department = department;
-    employees[index].phone = phone;
+    $.ajax({
+        url: 'https://6847cbaaec44b9f3493e34fd.mockapi.io/api/v1/employees/' + id,
+        type: 'PUT',
+        data: employee,
+        success: function(result) {
+            // error
+            if (result == undefined || result == null) {
+                alert("Error when loading data");
+                return;
+            }
 
-    hideModal();
-    showSuccessAlert();
-    buildTable();
+            // success
+            hideModal();
+            showSuccessAlert();
+            buildTable();
+        }
+    });
 }
 
 
@@ -149,11 +194,22 @@ function openConfirmDelete(id) {
 
 function deleteEmployee(id) {
     // TODO validate
-    var index = employees.findIndex(x => x.id === id);
-    employees.splice(index, 1);
 
-    showSuccessAlert();
-    buildTable();
+    $.ajax({
+        url: 'https://6847cbaaec44b9f3493e34fd.mockapi.io/api/v1/employees/' + id,
+        type: 'DELETE',
+        success: function(result) {
+            // error
+            if (result == undefined || result == null) {
+                alert("Error when loading data");
+                return;
+            }
+
+            // success
+            showSuccessAlert();
+            buildTable();
+        }
+    });
 }
 
 function showSuccessAlert() {
